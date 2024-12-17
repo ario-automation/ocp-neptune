@@ -1,0 +1,30 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+tasks:
+  flux:
+    desc: Bootstrap Flux [CLUSTER=main]
+    cmds:
+      - oc create namespace flux-system
+      - oc adm policy add-scc-to-user privileged system:serviceaccount:flux-system:image-automation-controller
+      - oc adm policy add-scc-to-user privileged system:serviceaccount:flux-system:image-reflector-controller
+      - oc adm policy add-scc-to-user privileged system:serviceaccount:flux-system:kustomize-controller
+      - oc adm policy add-scc-to-user privileged system:serviceaccount:flux-system:notification-controller
+      - oc adm policy add-scc-to-user privileged system:serviceaccount:flux-system:source-controller
+      - kubectl apply --server-side --kustomize {{.CLUSTER_DIR}}/bootstrap/apps
+      - for: { var: TEMPLATES }
+        cmd: op run --env-file {{.CLUSTER_DIR}}/bootstrap/bootstrap.env --no-masking -- minijinja-cli {{.ITEM}} | kubectl apply --server-side --filename -
+      - kubectl apply --server-side --kustomize {{.CLUSTER_DIR}}/flux/config
+    vars:
+      TEMPLATES:
+        sh: ls {{.CLUSTER_DIR}}/bootstrap/apps/*.j2
+    env:
+      VAULT: '{{if eq .CLUSTER "main"}}kubernetes{{else}}{{.CLUSTER}}{{end}}'
+      FLUX_GITHUB_PUBLIC_KEYS:
+        sh: curl -fsSL https://api.github.com/meta | jq --raw-output '"github.com "+.ssh_keys[]'
+    requires:
+      vars: [CLUSTER]
+    preconditions:
+      - op user get --me
+      - which curl flux oc ls op
