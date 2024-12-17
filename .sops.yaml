@@ -1,0 +1,17 @@
+---
+creation_rules:
+  - path_regex: openshift/.+\.sops\.yaml.j2
+    encrypted_regex: ^(token|crt|key|id|secret|secretboxEncryptionSecret|ca)$
+    mac_only_encrypted: true
+    key_groups:
+      - age:
+          - age1gej97akpv0km33qd9s8jurctewcpp046erwwfj44svyzusdxtp9sz506hc
+  - path_regex: openshift/.+\.sops\.yaml
+    encrypted_regex: ^(data|stringData)$
+    mac_only_encrypted: true
+    key_groups:
+      - age:
+          - age1gej97akpv0km33qd9s8jurctewcpp046erwwfj44svyzusdxtp9sz506hc
+stores:
+  yaml:
+    indent: 2
