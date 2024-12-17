@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  url: ssh://git@github.com:ario-automation/ocp-neptune.git
+  url: ssh://git@github.com/ario-automation/ocp-neptune
   ref:
     branch: main
   secretRef:
