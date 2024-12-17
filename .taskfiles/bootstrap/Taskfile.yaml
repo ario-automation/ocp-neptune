@@ -14,7 +14,7 @@ tasks:
       - oc adm policy add-scc-to-user privileged system:serviceaccount:flux-system:source-controller
       - kubectl apply --server-side --kustomize {{.CLUSTER_DIR}}/bootstrap/apps
       - for: { var: TEMPLATES }
-        cmd: op run --env-file {{.CLUSTER_DIR}}/bootstrap/bootstrap.env --no-masking -- minijinja-cli {{.ITEM}} | kubectl apply --server-side --filename -
+        cmd: op run --env-file {{.CLUSTER_DIR}}/bootstrap/bootstrap.env --no-masking -- minijinja-cli {{.ITEM}} | oc apply --server-side --filename -
       - kubectl apply --server-side --kustomize {{.CLUSTER_DIR}}/flux/config
     vars:
       TEMPLATES:
