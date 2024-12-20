@@ -42,13 +42,13 @@ spec:
         accessMode: ReadWriteOnce
       extraSecretEnvironmentVars:
         - envName: AWS_ACCESS_KEY_ID
-          secret: vault-secret
+          secretName: vault-secret
           secretKey: AWS_ACCESS_KEY_ID
         - envName: AWS_SECRET_ACCESS_KEY
-          secret: vault-secret
+          secretName: vault-secret
           secretKey: AWS_SECRET_ACCESS_KEY
         - envName: VAULT_AWSKMS_SEAL_KEY_ID
-          secret: vault-secret
+          secretName: vault-secret
           secretKey: VAULT_AWSKMS_SEAL_KEY_ID
       extraEnvironmentVars:
         TZ: ${TIMEZONE}
