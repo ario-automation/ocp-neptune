@@ -1,0 +1,17 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+tasks:
+  sync-secrets:
+    desc: Sync all ExternalSecrets [CLUSTER=main]
+    cmds:
+      - for: { var: SECRETS, split: "\n" }
+        cmd: oc --namespace {{splitList "," .ITEM | first}} annotate externalsecret {{splitList "," .ITEM | last}} force-sync="{{now | unixEpoch}}" --overwrite
+    vars:
+      SECRETS:
+        sh: oc get externalsecret --all-namespaces --no-headers --output=jsonpath='{range .items[*]}{.metadata.namespace},{.metadata.name}{"\n"}{end}'
+    requires:
+      vars: [CLUSTER]
+    preconditions:
+      - which oc

@@ -15,6 +15,7 @@ env:
 
 includes:
   bootstrap: .taskfiles/bootstrap
+  openshift: .taskfiles/openshift
 
 tasks:
   default:
