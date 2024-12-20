@@ -40,6 +40,7 @@ spec:
         size: 20Gi
         mountPath: "/vault/data"
         accessMode: ReadWriteOnce
+        storageClass: odf-storageclass
       extraSecretEnvironmentVars:
         - envName: AWS_ACCESS_KEY_ID
           secretName: vault-secret
