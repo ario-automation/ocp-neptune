@@ -68,9 +68,6 @@ spec:
           seal "awskms" {
             region = "us-east-1"
           }
-          seal "awskms" {
-            region = "us-east-1"
-          }
           # HTTPS listener
           listener "tcp" {
             address = "[::]:8200"
