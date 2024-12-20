@@ -13,4 +13,4 @@ spec:
   dnsNames:
     - "${SECRET_DOMAIN}"
     - "*.${SECRET_DOMAIN}"
-    - ".apps.neptune.${SECRET_DOMAIN}"
+    - "*.apps.neptune.${SECRET_DOMAIN}"
