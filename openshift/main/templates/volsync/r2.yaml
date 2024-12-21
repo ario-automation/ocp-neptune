@@ -52,7 +52,7 @@ spec:
   trigger:
     manual: restore-once
   restic:
-    repository: "${APP}-volsync-secret"
+    repository: "${APP}-volsync-r2-secret"
     copyMethod: Snapshot # must be Snapshot
     volumeSnapshotClassName: "${VOLSYNC_SNAPSHOTCLASS:-ocs-storagecluster-rbdplugin-snapclass}"
     cacheStorageClassName: "${VOLSYNC_CACHE_SNAPSHOTCLASS:-ocs-storagecluster-ceph-rbd}"
