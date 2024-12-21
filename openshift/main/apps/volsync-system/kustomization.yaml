@@ -2,11 +2,9 @@
 # yaml-language-server: $schema=https://json.schemastore.org/kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: flux-system
 resources:
-  - ./backube.yaml
-  - ./bjw-s.yaml
-  - ./external-secrets.yaml
-  - ./hashicorp.yaml
-  - ./jetstack.yaml
-  - ./piraeus.yaml
+  # Pre Flux-Kustomizations
+  - ./namespace.yaml
+  # Flux-Kustomizations
+  - ./snapshot-controller/ks.yaml
+  - ./volsync/ks.yaml
