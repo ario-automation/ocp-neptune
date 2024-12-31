@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - ./subscription.yaml
   - ./externalsecret.yaml
+  - ./automation-platform.yaml
