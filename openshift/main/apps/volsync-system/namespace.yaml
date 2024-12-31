@@ -6,6 +6,6 @@ metadata:
   annotations:
     kustomize.toolkit.fluxcd.io/prune: disabled
     openshift.io/sa.scc.mcs: s0:c26,c20
-    openshift.io/sa.scc.supplemental-groups: 1000690000/10000
-    openshift.io/sa.scc.uid-range: 1000690000/10000
+    openshift.io/sa.scc.supplemental-groups: 1002000000/10000
+    openshift.io/sa.scc.uid-range: 1002000000/10000
     volsync.backube/privileged-movers: "true"
