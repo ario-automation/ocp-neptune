@@ -21,6 +21,7 @@ spec:
     postgres_configuration_secret: demo-eda-postgres-configuration
     db_fields_encryption_secret: demo-eda-postgres-configuration
   hub:
-    file_storage_access_mode: ReadWriteOnce
+    storage_type: S3
+    object_storage_s3_secret: demo-hub-s3-secret
     postgres_configuration_secret: demo-hub-postgres-configuration
     secret_key_secret: demo-hub-postgres-configuration
