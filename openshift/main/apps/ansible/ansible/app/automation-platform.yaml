@@ -1,0 +1,14 @@
+---
+apiVersion: aap.ansible.com/v1alpha1
+kind: AnsibleAutomationPlatform
+metadata:
+  name: demo
+spec:
+  route_tls_termination_mechanism: Edge
+  service_type: ClusterIP
+  ingress_type: Route
+  no_log: true
+  hostname: demo.ansible.show
+  redis_mode: cluster
+  database:
+    database_secret:
