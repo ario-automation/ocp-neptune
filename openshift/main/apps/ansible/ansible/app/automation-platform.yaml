@@ -21,5 +21,6 @@ spec:
     postgres_configuration_secret: demo-eda-postgres-configuration
     db_fields_encryption_secret: demo-eda-postgres-configuration
   hub:
+    file_storage_access_mode: ReadWriteOnce
     postgres_configuration_secret: demo-hub-postgres-configuration
     secret_key_secret: demo-hub-postgres-configuration
