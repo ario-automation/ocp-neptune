@@ -10,5 +10,15 @@ spec:
   no_log: true
   hostname: demo.ansible.show
   redis_mode: cluster
+  db_fields_encryption_secret: demo-gateway-postgres-configuration
   database:
-    database_secret:
+    database_secret: demo-gateway-postgres-configuration
+  controller:
+    postgres_configuration_secret: demo-controller-postgres-configuration
+    secret_key_secret: demo-controller-postgres-configuration
+  eda:
+    postgres_configuration_secret: demo-eda-postgres-configuration
+    db_fields_encryption_secret: demo-eda-postgres-configuration
+  hub:
+    postgres_configuration_secret: demo-hub-postgres-configuration
+    secret_key_secret: demo-hub-postgres-configuration
