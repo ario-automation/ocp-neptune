@@ -12,6 +12,7 @@ spec:
   hostname: demo.ansible.show
   redis_mode: cluster
   db_fields_encryption_secret: demo-gateway-postgres-configuration
+  admin_password_secret: demo-admin-password
   database:
     database_secret: demo-gateway-postgres-configuration
   controller:
