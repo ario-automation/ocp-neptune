@@ -18,6 +18,7 @@ spec:
   controller:
     postgres_configuration_secret: demo-controller-postgres-configuration
     secret_key_secret: demo-controller-postgres-configuration
+    control_plane_ee_image: demo.ansible.show/ee-supported-rhel9:latest
   eda:
     postgres_configuration_secret: demo-eda-postgres-configuration
     db_fields_encryption_secret: demo-eda-postgres-configuration
