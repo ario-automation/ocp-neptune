@@ -29,3 +29,6 @@ spec:
       replicaCount: 2
       serviceMonitor:
         create: true
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1002000001
