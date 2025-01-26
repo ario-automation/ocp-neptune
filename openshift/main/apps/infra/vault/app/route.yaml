@@ -4,7 +4,7 @@ kind: Route
 metadata:
   name: vault
 spec:
-  host: "vault.apps.neptune.${SECRET_DOMAIN}"
+  host: "vault.${SECRET_DOMAIN}"
   to:
     kind: Service
     name: vault
