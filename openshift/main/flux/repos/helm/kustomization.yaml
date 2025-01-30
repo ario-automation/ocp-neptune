@@ -6,6 +6,7 @@ namespace: flux-system
 resources:
   - ./backube.yaml
   - ./bjw-s.yaml
+  - ./bootc-charts.yaml
   - ./external-secrets.yaml
   - ./hashicorp.yaml
   - ./jetstack.yaml
